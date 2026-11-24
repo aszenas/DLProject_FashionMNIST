@@ -1,0 +1,34 @@
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+extend-exclude = [
+    "data",
+    "artifacts",
+    "results",
+    "build",
+    "dist",
+]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # Pyflakes
+    "I",   # Import sorting
+    "W",   # pycodestyle warnings
+]
+
+ignore = [
+    "E501",  # Line length
+]
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = [
+    "E402",  # Imports may appear in later notebook cells
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
