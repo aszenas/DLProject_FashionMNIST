@@ -1,0 +1,85 @@
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+.python-version
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dataset files
+data/raw/*
+!data/raw/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+# Trained models and checkpoints
+artifacts/ml/*
+!artifacts/ml/.gitkeep
+
+artifacts/dl/*
+!artifacts/dl/.gitkeep
+
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+*.safetensors
+
+# Experiment tracking and generated logs
+runs/
+wandb/
+mlruns/
+lightning_logs/
+logs/
+*.log
+
+
+# Testing and code quality
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+
+# Temporary files and submission archives
+tmp/
+temp/
+*.tmp
+~$*
+*.zip
