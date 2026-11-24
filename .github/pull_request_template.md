@@ -20,13 +20,6 @@ milyen teszteket vagy kísérleteket végeztél.
 Amennyiben releváns, add meg a legfontosabb
 eredményeket, metrikákat vagy megfigyeléseket.
 
-| Metrika | Baseline | Optimalizált |
-|---------|----------|--------------|
-| Accuracy | | |
-| Macro F1-score | | |
-| Training time | | |
-| Inference time | | |
-
 ## Dokumentáció
 
 Kapcsolódó dokumentáció:
