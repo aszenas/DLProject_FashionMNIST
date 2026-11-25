@@ -5,14 +5,13 @@ import numpy as np
 
 from src.preprocessing.dataset import load_dataset
 from src.preprocessing.ml import build_ml_datasets
+from src.preprocessing.split import load_split
 
 
 def preview_ml_preprocessing():
     train_dataset, test_dataset = load_dataset()
 
-    # Temporary indices for demonstration purposes only
-    train_indices = range(100)
-    val_indices = range(100, 120)
+    train_indices, val_indices = load_split()
 
     datasets, preprocessor = build_ml_datasets(
         train_dataset,
@@ -44,9 +43,10 @@ def preview_ml_preprocessing():
     # Inspect the first training sample
     sample = X_train[0]
     label = y_train[0]
+    original_index = int(train_indices[0])
 
     print("\n=== SAMPLE AFTER PREPROCESSING ===")
-    print(f"Original image shape: {train_dataset.data[0].shape}")
+    print(f"Original image shape: {train_dataset.data[original_index].shape}")
     print(f"Processed image shape: {sample.shape}")
     print(f"Number of features: {sample.size}")
     print(f"Label: {label}")
@@ -61,7 +61,7 @@ def preview_ml_preprocessing():
 
         fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 
-    original_image, _ = train_dataset[0]
+    original_image, _ = train_dataset[original_index]
 
     axes[0].imshow(original_image, cmap="gray", vmin=0, vmax=255)
     axes[0].set_title("Original image (28x28)")
