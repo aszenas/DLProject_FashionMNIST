@@ -9,7 +9,7 @@
 | Dátum | 2026.11.26. |
 | Kapcsolódó feladatok | 2.2, 2.3, 3.1–3.4, 4.3 |
 | Kapcsolódó notebook | `notebooks/02_random_forest.ipynb` |
-| Modellmodul | `src/models/random_forest.py` |
+| Modellmodul | `src/models/ml/random_forest.py` |
 
 ## 2. Feladat célja
 
@@ -63,7 +63,7 @@ Fő függőségek: scikit-learn, scikit-image, NumPy, PyTorch, Torchvision, Pand
 
 | Fájl | Funkció |
 |---|---|
-| `src/models/random_forest.py` | Random Forest modellkonstruktor |
+| `src/models/ml/random_forest.py` | Random Forest modellkonstruktor |
 | `notebooks/02_random_forest.ipynb` | Tanítás, kísérletek, értékelés és vizualizáció |
 | `results/experiments/random_forest_experiments.csv` | 13 futás konfigurációi és metrikái |
 | `results/experiments/random_forest_final_metrics.csv` | A kiválasztott modell végleges mutatói |
@@ -71,9 +71,17 @@ Fő függőségek: scikit-learn, scikit-image, NumPy, PyTorch, Torchvision, Pand
 | `results/figures/random_forest/` | Eredményábrák |
 | `artifacts/ml/random_forest.joblib` | Lokálisan tárolt betanított modell |
 | `artifacts/ml/random_forest_preprocessor.joblib` | Lokálisan tárolt illesztett preprocessor |
+| `artifacts/ml/random_forest_baseline.joblib` | Lokálisan tárolt betanított baseline modell |
+| `artifacts/ml/random_forest_baseline_preprocessor.joblib` | Lokálisan tárolt baseline preprocessor |
 | `docs/features/05-03-random-forest.md` | Szakmai dokumentáció |
 
 A modellállományok nem kerülnek Git-verziókezelésbe.
+
+A mentés ellenőrzése során a baseline és a végleges optimalizált modell,
+valamint a hozzájuk tartozó preprocessor visszatöltése is megtörténik. A
+baseline preprocessor első 100 nyers validációs kép transzformációját az
+eredeti előfeldolgozott jellemzőkkel, a baseline modell predikcióit pedig az
+eredeti modell predikcióival vetjük össze.
 
 ### 5.4. Futtatási útmutató
 
