@@ -1,0 +1,14 @@
+{
+    "C": 10.0,
+    "penalty": "l2",
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "tol": 0.0001,
+    "fit_intercept": true,
+    "class_weight": null,
+    "l1_ratio": null,
+    "standardize": false,
+    "pca_components": null,
+    "use_hog": true,
+    "seed": 42
+}
