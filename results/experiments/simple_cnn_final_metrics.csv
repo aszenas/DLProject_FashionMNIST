@@ -1,0 +1,3 @@
+run_id,description,test_loss,test_accuracy,test_macro_f1,inference_time_s,forward_inference_time_s,model_size_mib,n_parameters,best_epoch,checkpoint,preprocessing_params
+CNN-00,Baseline,0.2353397246837616,0.9195,0.919198338939121,2.44912080001086,1.7145895001012832,1.6115846633911133,421642,8,artifacts\dl\simple_cnn_baseline.pt,"{""batch_size"": 64, ""seed"": 42, ""standardize"": false, ""train_augmentation"": null}"
+CNN-03,Standardized optimized model,0.26554063336849215,0.924,0.9241531410052239,2.7331690000137314,1.5208841001149267,1.6116456985473633,421642,10,artifacts\dl\simple_cnn_cnn-03.pt,"{""batch_size"": 64, ""mean"": 0.28627583354020947, ""seed"": 42, ""standardize"": true, ""std"": 0.3531853346544167, ""train_augmentation"": ""standardize=True""}"
