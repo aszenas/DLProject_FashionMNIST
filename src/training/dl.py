@@ -20,6 +20,7 @@ class TrainingConfig:
     epochs: int = 10
     learning_rate: float = 0.001
     weight_decay: float = 0.0
+    scheduler: str | None = None
 
 
 def set_random_seed(seed: int) -> None:
@@ -124,6 +125,15 @@ def fit_model(
         lr=config.learning_rate,
         weight_decay=config.weight_decay,
     )
+    scheduler = None
+
+    if config.scheduler == "CosineAnnealingLR":
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=config.epochs,
+        )
+    elif config.scheduler is not None:
+        raise ValueError(f"Unsupported scheduler: {config.scheduler}")
     history: list[dict[str, Any]] = []
     best_key = (-float("inf"), -float("inf"), float("inf"))
     best_epoch = 0
@@ -147,6 +157,7 @@ def fit_model(
             "val_accuracy": val_metrics["accuracy"],
             "val_macro_f1": val_metrics["macro_f1"],
             "epoch_duration_s": epoch_duration,
+            "learning_rate": optimizer.param_groups[0]["lr"],
         }
         history.append(row)
         print(
@@ -168,6 +179,9 @@ def fit_model(
             best_key = selection_key
             best_epoch = epoch
             best_state = deepcopy(model.state_dict())
+
+        if scheduler is not None:
+            scheduler.step()
 
     _synchronize(device)
     total_training_time = perf_counter() - training_start
