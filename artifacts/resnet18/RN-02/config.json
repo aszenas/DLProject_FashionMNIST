@@ -1,0 +1,15 @@
+{
+    "dropout": 0.0,
+    "num_classes": 10,
+    "optimizer": "Adam",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.0,
+    "scheduler": null,
+    "epochs": 10,
+    "batch_size": 64,
+    "loss": "CrossEntropyLoss",
+    "standardize": false,
+    "train_augmentation": null,
+    "pretrained_weights": null,
+    "seed": 42
+}
